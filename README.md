@@ -1,83 +1,36 @@
-<h1>
-  Sufficit.Telephony.EventsPanel.Core
-  <a href="[https://github.com/sufficit/sufficit](https://github.com/sufficit/sufficit)"><img src="[https://avatars.githubusercontent.com/u/66928451?s=200&v=4](https://avatars.githubusercontent.com/u/66928451?s=200&v=4)" alt="Sufficit Logo" width="80" align="right"></a>
-</h1>
+# Sufficit.Telephony.Panel.Core
 
-> **Worktrees (padrão Sufficit):** toda árvore de trabalho deste projeto (humanos ou agentes de IA) deve ser criada dentro da pasta do próprio projeto: `git worktree add .worktrees/<nome>`. A pasta `.worktrees/` é ignorada pelo git (`.gitignore` → `**/.worktrees/`) e nunca deve ser versionada ou criada fora da raiz do repositório.
+Contratos compartilhados pelo painel de telefonia e seus serviços consumidores.
 
+- Repositório: `sufficit-telephony-panel-core`.
+- Projeto, assembly e pacote: `Sufficit.Telephony.Panel.Core`.
+- Namespace: `Sufficit.Telephony.Panel`.
+- Targets: `netstandard2.0`, `net7.0`, `net10.0`.
 
-[![NuGet](https://img.shields.io/nuget/v/Sufficit.Telephony.EventsPanel.Core.svg)]([https://www.nuget.org/packages/Sufficit.Telephony.EventsPanel.Core/](https://www.nuget.org/packages/Sufficit.Telephony.EventsPanel.Core/))
+Contém os modelos `EventsPanelCardInfo`, `EventsPanelCardKind`, opções e interfaces
+compartilhadas. Os nomes das classes, propriedades JSON, valores do enum e a chave
+de configuração `Sufficit:Telephony:EventsPanel` foram preservados na renomeação.
 
-## 📖 About the Project
+```csharp
+using Sufficit.Telephony.Panel;
 
-`Sufficit.Telephony.EventsPanel.Core` is the core library for the Sufficit Real-time Telephony Events Panel. It contains the essential business logic, data models, and interfaces required to build and interact with a live dashboard displaying telephony activities.
+var card = new EventsPanelCardInfo { Label = "Atendimento", Kind = EventsPanelCardKind.QUEUE };
+```
 
-This library is not a UI framework itself but provides the foundational components for both backend services (which process and push events) and frontend applications (which consume and display events).
+## Migração
 
-### ✨ Key Features
+Atualizar referências de projeto/pacote e imports para o novo nome e recompilar
+os consumidores em conjunto. A alteração de assembly e namespace quebra a
+compatibilidade binária com consumidores compilados contra o pacote antigo.
+O novo pacote precisa ser publicado antes de builds que dependam do NuGet.
 
-* Core models for telephony events (e.g., `PanelEvent`, `ChannelStatus`, `QueueInfo`).
-* DTOs for communication between backend and frontend (e.g., via SignalR).
-* Business logic for interpreting and enriching raw telephony events.
-* Interfaces for services that manage the state of the events panel.
+## Desenvolvimento
 
-## 🚀 Getting Started
+Worktrees devem ficar em `.worktrees/` dentro do próprio repositório.
 
-This is a core library and is meant to be consumed by other projects. Install it as a dependency via NuGet.
+```sh
+dotnet build src/Sufficit.Telephony.Panel.Core.csproj
+dotnet pack src/Sufficit.Telephony.Panel.Core.csproj -c Release
+```
 
-### 📦 NuGet Package
-
-Install the package via the .NET CLI or the NuGet Package Manager Console.
-
-**.NET CLI:**
-
-    dotnet add package Sufficit.Telephony.EventsPanel.Core
-
-**Package Manager Console:**
-
-    Install-Package Sufficit.Telephony.EventsPanel.Core
-
-> **Note for Developers:** The code samples below use 4-space indentation rather than fenced code blocks (```). This is intentional to prevent rendering issues in certain environments and ensure the raw text can be copied cleanly.
-
-## 🛠️ Usage
-
-This library is used by referencing its models and services in your backend event processors or frontend view models.
-
-**Example of a model from the library:**
-
-    using Sufficit.Telephony.EventsPanel.Core;
-
-    public class DashboardViewModel
-    {
-        public List<ChannelStatus> ActiveChannels { get; set; } = new();
-
-        // This method would be called by a SignalR client or other real-time service
-        public void UpdateChannelState(ChannelStatus newStatus)
-        {
-            var existingChannel = ActiveChannels.FirstOrDefault(c => c.UniqueID == newStatus.UniqueID);
-            if (existingChannel != null)
-            {
-                // Update properties
-                existingChannel.State = newStatus.State;
-                existingChannel.Duration = newStatus.Duration;
-            }
-            else
-            {
-                ActiveChannels.Add(newStatus);
-            }
-        }
-    }
-
-## 🤝 Contributing
-
-Contributions are greatly appreciated. Please follow the standard fork and pull request workflow.
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
-## 📧 Contact
-
-Sufficit - [contato@sufficit.com.br](mailto:contato@sufficit.com.br)
-
-Project Link: [https://github.com/sufficit/sufficit-telephony-eventspanel-core](https://github.com/sufficit/sufficit-telephony-eventspanel-core)
+Licença: [MIT](license).

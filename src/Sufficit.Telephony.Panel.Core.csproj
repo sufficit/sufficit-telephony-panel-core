@@ -3,7 +3,7 @@
 
 	<PropertyGroup Label="Sufficit Targeting">
 		<TargetFrameworks>netstandard2.0;net7.0;net10.0</TargetFrameworks>
-		<RootNamespace>Sufficit.Telephony.EventsPanel</RootNamespace>
+		<RootNamespace>Sufficit.Telephony.Panel</RootNamespace>
 		<Configurations>Debug;Release</Configurations>
 	</PropertyGroup>
 
@@ -19,7 +19,7 @@
 		<Company>SUFFICIT SOLUÇÕES EM TECNOLOGIA DA INFORMAÇÃO</Company>
 		<Authors>Hugo Castro de Deco</Authors>
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-		<ProductName>Sufficit Telephony EventsPanel Core</ProductName>
+		<ProductName>Sufficit Telephony Panel Core</ProductName>
 
 		<!-- Copia todas as dlls de dependencias para o diretório de publicação dos projetos que o utilizam -->
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
@@ -29,16 +29,16 @@
 	</PropertyGroup>
 
 	<PropertyGroup Label="Sufficit Pacote NUGET">
-		<Name>Sufficit.Telephony.EventsPanel.Core</Name>
-		<PackageId>Sufficit.Telephony.EventsPanel.Core</PackageId>
+		<Name>Sufficit.Telephony.Panel.Core</Name>
+		<PackageId>Sufficit.Telephony.Panel.Core</PackageId>
 		<PackageDescription></PackageDescription>
-		<RepositoryUrl>https://github.com/sufficit/sufficit-telephony-eventspanel-core</RepositoryUrl>
-		<PackageProjectUrl>https://github.com/sufficit/sufficit-telephony-eventspanel-core</PackageProjectUrl>
-		<PackageIconUrl>https://raw.githubusercontent.com/sufficit/sufficit-telephony-eventspanel-core/main/icon.ico</PackageIconUrl>
+		<RepositoryUrl>https://github.com/sufficit/sufficit-telephony-panel-core</RepositoryUrl>
+		<PackageProjectUrl>https://github.com/sufficit/sufficit-telephony-panel-core</PackageProjectUrl>
+		<PackageIconUrl>https://raw.githubusercontent.com/sufficit/sufficit-telephony-panel-core/main/icon.ico</PackageIconUrl>
 		<GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
 		<PackageLicenseFile>license</PackageLicenseFile>
-		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageIcon>icon.png</PackageIcon>
 	</PropertyGroup>
 
@@ -51,7 +51,7 @@
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>
-		<None Include="../readme.md">
+		<None Include="../README.md">
 			<Pack>True</Pack>
 			<PackagePath></PackagePath>
 		</None>

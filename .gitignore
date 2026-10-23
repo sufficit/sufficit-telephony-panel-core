@@ -2,7 +2,6 @@
 **/obj/
 **/tmp/
 **/.vs/
-src/Sufficit.Telephony.EventsPanel.Core.csproj
 *.nupkg
 **/.artifacts/
 **/artifacts/

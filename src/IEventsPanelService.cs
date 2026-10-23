@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Sufficit.Telephony.EventsPanel
+namespace Sufficit.Telephony.Panel
 {
     /// <summary>
     /// Base interface for EventsPanel Service

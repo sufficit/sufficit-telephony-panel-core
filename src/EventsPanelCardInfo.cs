@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Sufficit.Telephony.EventsPanel
+namespace Sufficit.Telephony.Panel
 {
     /// <summary>
     /// Basic info to Match a card to a monitor
